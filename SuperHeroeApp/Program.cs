@@ -1,4 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using SuperHeroeApp.Models;
+using System.Text;
+
 Console.WriteLine("Super Héroes!");
 
 var vistaLaser = new SuperPoder();
@@ -99,52 +102,15 @@ shazam.SuperPoderes = superPoderesShazam; // { "Sabiduría de Salomón", "Fuerza
 shazam.PuedeVolar = true;
 shazam.UsarSuperPoder();
 
-class SuperHeroe
-{
-    public uint Id;
-    public string Nombre;
-    public string IdentidadSecreta;
-    public string Ciudad;
-    public List<SuperPoder> SuperPoderes;
-    public bool PuedeVolar;
-    
-    public SuperHeroe()
-    {
-        Id = 1;
-        Nombre = "";
-        IdentidadSecreta = "";
-        Ciudad = "";
-        PuedeVolar = false;
-        SuperPoderes = new List<SuperPoder>();
-    }
+SuperHeroRecord supermanRecord = new (superman.Id, superman.Nombre, superman.IdentidadSecreta);
+SuperHeroRecord supermanRecord2 = new (superman.Id, superman.Nombre, superman.IdentidadSecreta);
+Console.WriteLine(supermanRecord==supermanRecord2);
 
-    public void UsarSuperPoder()
-    {
-        foreach (var poder in this.SuperPoderes)
-        {
-            Console.WriteLine($"{Nombre} esta usando el super poder {poder.Nombre}");
-        }
-    }
-}
 
-class SuperPoder
-{
-    public string Nombre; 
-    public string Descripcion;
-    public NivelPoder Nivel;
-    public SuperPoder()
-    {
-        Nombre = "";
-        Descripcion = "";
-        Nivel = NivelPoder.NivelUno;
-    }
-}
 
-enum NivelPoder
-{
-    NivelUno,
-    NivelDos,
-    NivelTres,
-    NivelCuatro,
-    NivelCinco,
-}
+
+
+
+
+public record SuperHeroRecord(uint Id, string Nombre, string IdentidadSecreta);
+
