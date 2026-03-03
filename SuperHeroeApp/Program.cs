@@ -28,8 +28,9 @@ superman.Id = 1;
 superman.Nombre = "Superman";
 superman.IdentidadSecreta = "Clark Kent";
 superman.Ciudad = "Metrópolis";
-superman.SuperPoderes = superPoderesSuperman;//{ "Vista Laser", "Super Aliento frío", "Super Fuerza", "Visión de Rayos X", "Super Velocidad", "Super Oído", "Super Resistencia" };
+superman.SuperPoderes = superPoderesSuperman;
 superman.PuedeVolar = true;
+superman.UsarSuperPoder();
 
 var superMillonario = new SuperPoder();
 superMillonario.Nombre = "Super Millonario";
@@ -55,6 +56,7 @@ batman.IdentidadSecreta = "Bruce Wayne";
 batman.Ciudad = "Ciudad Gotica";
 batman.SuperPoderes = superPoderesBatman;
 batman.PuedeVolar = false;
+batman.UsarSuperPoder();
 
 var superVelocidadFlash = new SuperPoder();
 superVelocidadFlash.Nombre = "Super Velocidad";
@@ -74,7 +76,7 @@ flash.IdentidadSecreta = "Barry Allend";
 flash.Ciudad = "Central City";
 flash.SuperPoderes = superPoderesFlash;
 flash.PuedeVolar = false;
-
+flash.UsarSuperPoder();
 
 var superInteligencia = new SuperPoder();
 superInteligencia.Nombre = "Super Inteligencia";
@@ -95,6 +97,7 @@ shazam.IdentidadSecreta = "Billy Batson";
 shazam.Ciudad = "Fawcett City";
 shazam.SuperPoderes = superPoderesShazam; // { "Sabiduría de Salomón", "Fuerza de Hércules", "Resistencia de Atlas", "Poder de Zeus", "Valor de Aquiles", "Velocidad de Mercurio" };
 shazam.PuedeVolar = true;
+shazam.UsarSuperPoder();
 
 class SuperHeroe
 {
@@ -104,6 +107,7 @@ class SuperHeroe
     public string Ciudad;
     public List<SuperPoder> SuperPoderes;
     public bool PuedeVolar;
+    
     public SuperHeroe()
     {
         Id = 1;
@@ -112,6 +116,14 @@ class SuperHeroe
         Ciudad = "";
         PuedeVolar = false;
         SuperPoderes = new List<SuperPoder>();
+    }
+
+    public void UsarSuperPoder()
+    {
+        foreach (var poder in this.SuperPoderes)
+        {
+            Console.WriteLine($"{Nombre} esta usando el super poder {poder.Nombre}");
+        }
     }
 }
 
