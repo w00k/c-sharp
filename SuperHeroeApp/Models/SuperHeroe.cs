@@ -22,7 +22,7 @@ namespace SuperHeroeApp.Models
         {
             get
             {
-                return $"{Nombre} - {IdentidadSecreta}";
+                return $"{Nombre} ({IdentidadSecreta})";
             }
         }
 
@@ -52,6 +52,11 @@ namespace SuperHeroeApp.Models
         public override string SalvarElMundo()
         {
             return $"{NombreEIdentidadSecreta}, ha salvado el mundo!";
+        }
+        
+        public override string SalvarLaTierra()
+        {
+            return $"{NombreEIdentidadSecreta}, ha salvado la tierra!";
         }
     }
 }
