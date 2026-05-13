@@ -34,6 +34,8 @@ superman.Ciudad = "Metrópolis";
 superman.SuperPoderes = superPoderesSuperman;
 superman.PuedeVolar = true;
 superman.UsarSuperPoder();
+Console.WriteLine(superman.SalvarElMundo());
+Console.WriteLine(superman.SalvarLaTierra());
 
 var superMillonario = new SuperPoder();
 superMillonario.Nombre = "Super Millonario";
@@ -106,11 +108,27 @@ SuperHeroRecord supermanRecord = new (superman.Id, superman.Nombre, superman.Ide
 SuperHeroRecord supermanRecord2 = new (superman.Id, superman.Nombre, superman.IdentidadSecreta);
 Console.WriteLine(supermanRecord==supermanRecord2);
 
+var recuperacion = new SuperPoder();
+recuperacion.Nombre = "Regeneracion";
+recuperacion.Descripcion = "Se recupera de las cenizas";
+recuperacion.Nivel = NivelPoder.NivelCuatro;
 
+var superPoderWolverine = new List<SuperPoder>
+{
+    recuperacion
+};
 
-
-
-
+var wolverin = new AntiHeroe
+{
+    Id = 5,
+    Nombre = "Wolverin",
+    IdentidadSecreta = "Logan",
+    Ciudad = "All",
+    SuperPoderes = superPoderWolverine,
+    PuedeVolar = true
+};
+wolverin.UsarSuperPoder();
+string accion = wolverin.RealizarAccionAntiHeroe("atacar a la policia");
+Console.WriteLine(accion);
 
 public record SuperHeroRecord(uint Id, string Nombre, string IdentidadSecreta);
-

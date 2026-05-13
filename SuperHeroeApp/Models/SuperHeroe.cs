@@ -3,10 +3,29 @@ using System.Collections.Generic;
 
 namespace SuperHeroeApp.Models
 {
-    class SuperHeroe
+    class SuperHeroe : Heroe
     {
+        private string _Nombre;
         public uint Id;
-        public string Nombre;
+        
+        public override string Nombre { get
+            {
+                return _Nombre;
+            }
+            set
+            {
+                _Nombre = value.Trim();
+            } 
+        }
+
+        public string NombreEIdentidadSecreta
+        {
+            get
+            {
+                return $"{Nombre} - {IdentidadSecreta}";
+            }
+        }
+
         public string IdentidadSecreta;
         public string Ciudad;
         public List<SuperPoder> SuperPoderes;
@@ -26,8 +45,13 @@ namespace SuperHeroeApp.Models
         {
             foreach (var poder in this.SuperPoderes)
             {
-                Console.WriteLine($"{Nombre} esta usando el super poder {poder.Nombre}");
+                Console.WriteLine($"{NombreEIdentidadSecreta}, esta usando el super poder {poder.Nombre}");
             }
+        }
+        
+        public override string SalvarElMundo()
+        {
+            return $"{NombreEIdentidadSecreta}, ha salvado el mundo!";
         }
     }
 }
