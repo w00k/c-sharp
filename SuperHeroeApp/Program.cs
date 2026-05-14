@@ -1,8 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using SuperHeroeApp.Models;
+using SuperHeroeApp;
 using System.Text;
 
 Console.WriteLine("Super Héroes!");
+
+var imprimirInfo = new ImprimirInfo();
 
 var vistaLaser = new SuperPoder();
 vistaLaser.Nombre = "Vista Laser";
@@ -36,6 +39,8 @@ superman.PuedeVolar = true;
 superman.UsarSuperPoder();
 Console.WriteLine(superman.SalvarElMundo());
 Console.WriteLine(superman.SalvarLaTierra());
+
+imprimirInfo.ImprimirSuperHeroe(superman);
 
 var superMillonario = new SuperPoder();
 superMillonario.Nombre = "Super Millonario";

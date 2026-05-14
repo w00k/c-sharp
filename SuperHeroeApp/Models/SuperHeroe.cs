@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using SuperHeroeApp.Interfaces;
 
 namespace SuperHeroeApp.Models
 {
-    class SuperHeroe : Heroe
+    class SuperHeroe : Heroe, ISuperHeroe
     {
-        private string _Nombre;
-        public uint Id;
+        private string _Nombre = "";
+        public uint Id { get; set; }
         
         public override string Nombre { get
             {
@@ -26,7 +27,7 @@ namespace SuperHeroeApp.Models
             }
         }
 
-        public string IdentidadSecreta;
+        public string IdentidadSecreta { get; set; }
         public string Ciudad;
         public List<SuperPoder> SuperPoderes;
         public bool PuedeVolar;
